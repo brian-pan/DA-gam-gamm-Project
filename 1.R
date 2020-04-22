@@ -21,3 +21,4 @@ mathGamInt = gam(
   MathAch ~ s(SES, by=Minority) + 
     Minority*Sex, 
   data=MathAchieve)
+mathGamInt$sp
