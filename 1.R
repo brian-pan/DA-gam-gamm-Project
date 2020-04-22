@@ -15,3 +15,9 @@ knitr::kable(
 plot(mathGam)
 
 mathGam$sp
+
+## Math, SES-minority interaction
+mathGamInt = gam(
+  MathAch ~ s(SES, by=Minority) + 
+    Minority*Sex, 
+  data=MathAchieve)
