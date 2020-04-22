@@ -11,3 +11,7 @@ mathGam = gam(
 knitr::kable(
   summary(mathGam)$p.table[,1:2], 
   digits=1)
+
+plot(mathGam)
+
+mathGam$sp
