@@ -30,7 +30,7 @@ knitr::kable(
 plot(mathGamInt, select=1)
 plot(mathGamInt, select=2)
 
-# Math, common smoothing parameter
+## Math, common smoothing parameter
 mathGamIntC = gam(MathAch ~ 
                     s(SES, by=Minority, id=1) + 
                     Minority*Sex, 
@@ -40,3 +40,8 @@ mathGamIntC$sp
 knitr::kable(
   summary(mathGamIntC)$p.table[,1:2], 
   digits=1)
+
+plot(mathGamIntC, select=1)
+plot(mathGamIntC, select=2)
+
+
