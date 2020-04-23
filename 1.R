@@ -36,3 +36,7 @@ mathGamIntC = gam(MathAch ~
                     Minority*Sex, 
                   data=MathAchieve)
 mathGamIntC$sp
+
+knitr::kable(
+  summary(mathGamIntC)$p.table[,1:2], 
+  digits=1)
