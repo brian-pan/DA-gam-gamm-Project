@@ -29,3 +29,10 @@ knitr::kable(
 
 plot(mathGamInt, select=1)
 plot(mathGamInt, select=2)
+
+# Math, common smoothing parameter
+mathGamIntC = gam(MathAch ~ 
+                    s(SES, by=Minority, id=1) + 
+                    Minority*Sex, 
+                  data=MathAchieve)
+mathGamIntC$sp
