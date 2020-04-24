@@ -44,4 +44,10 @@ knitr::kable(
 plot(mathGamIntC, select=1)
 plot(mathGamIntC, select=2)
 
+## Math 2d
 
+mathGam2 = gam(
+  MathAch ~ s(SES, MEANSES) +
+    Minority*Sex, 
+  data=MathAchieve)
+plot(mathGam2, scheme=2, n2=100)
