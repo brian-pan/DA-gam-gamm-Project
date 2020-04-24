@@ -56,3 +56,4 @@ mTable1 = XML::readHTMLTable(getURL(
   'https://en.wikipedia.org/wiki/List_of_countries_by_infant_mortality_rate'
 ), stringsAsFactors=FALSE, header=TRUE)
 mTable1 = mTable1[[which.max(unlist(lapply(mTable1, nrow)))]]
+mTable = mTable1[grep("^([[:digit:]]|[[:space:]])+$|^$|^Country|^World", mTable1[,1], invert=TRUE), ]
