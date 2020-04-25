@@ -60,3 +60,7 @@ mTable = mTable1[grep("^([[:digit:]]|[[:space:]])+$|^$|^Country|^World", mTable1
 mTable = mTable[,c(1,3)]
 
 colnames(mTable)=c('Country','mortality')
+
+iTable = readHTMLTable(getURL(
+  'https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita'
+), stringsAsFactors=FALSE,header=TRUE)
