@@ -58,3 +58,5 @@ mTable1 = XML::readHTMLTable(getURL(
 mTable1 = mTable1[[which.max(unlist(lapply(mTable1, nrow)))]]
 mTable = mTable1[grep("^([[:digit:]]|[[:space:]])+$|^$|^Country|^World", mTable1[,1], invert=TRUE), ]
 mTable = mTable[,c(1,3)]
+
+colnames(mTable)=c('Country','mortality')
