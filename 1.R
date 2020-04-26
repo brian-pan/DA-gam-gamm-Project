@@ -234,4 +234,4 @@ points(as.POSIXct(oDeaths$date, format="%Y/%m/%d" ),
 deathsGamC = gam(
   Value ~ month + s(timeNumeric, pc=0) + 
     offset(nDays), data=oDeaths, 
-  family='possion')
+  family='poisson')
