@@ -63,4 +63,7 @@ colnames(mTable)=c('Country','mortality')
 
 iTable = readHTMLTable(getURL(
   'https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita'
-), stringsAsFactors=FALSE,header=TRUE)
+), stringsAsFactors=FALSE,header=TRUE)s
+
+iTable = iTable[[5]]
+colnames(iTable) = gsub("([[:punct:]]|[[:space:]]).*", "", colnames(iTable))
