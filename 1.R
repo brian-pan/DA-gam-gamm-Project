@@ -67,3 +67,5 @@ iTable = readHTMLTable(getURL(
 
 iTable = iTable[[5]]
 colnames(iTable) = gsub("([[:punct:]]|[[:space:]]).*", "", colnames(iTable))
+iTable$Country = gsub("[[:punct:]]", "", iTable$Country)
+mTable$Country = gsub("[[:punct:]]", "", mTable$Country)
