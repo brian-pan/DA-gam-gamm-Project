@@ -76,3 +76,7 @@ iTable$Country = gsub("é", "e", iTable$Country)
 iTable$Country = gsub("í", "i", iTable$Country)
 
 iMort = merge(iTable, mTable, by='Country')
+
+ineqTable = readHTMLTable(getURL(
+  'https://en.wikipedia.org/wiki/List_of_countries_by_income_equality'
+), skip.rows=1:2, stringsAsFactors=FALSE)
