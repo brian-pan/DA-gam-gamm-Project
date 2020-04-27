@@ -72,3 +72,5 @@ mTable$Country = gsub("[[:punct:]]", "", mTable$Country)
 
 iTable$Country = gsub("ô", "o", iTable$Country)
 iTable$Country = gsub("ã", "a", iTable$Country)
+iTable$Country = gsub("é", "e", iTable$Country)
+iTable$Country = gsub("í", "i", iTable$Country)
