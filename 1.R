@@ -235,3 +235,5 @@ deathsGamC = gam(
   Value ~ month + s(timeNumeric, pc=0) + 
     offset(nDays), data=oDeaths, 
   family='poisson')
+
+knitr::kable
