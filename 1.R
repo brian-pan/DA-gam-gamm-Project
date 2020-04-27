@@ -80,3 +80,5 @@ iMort = merge(iTable, mTable, by='Country')
 ineqTable = readHTMLTable(getURL(
   'https://en.wikipedia.org/wiki/List_of_countries_by_income_equality'
 ), skip.rows=1:2, stringsAsFactors=FALSE)
+ineqTable = ineqTable[[1]][-1,]
+ineqTable = ineqTable[,c(1,4)]
