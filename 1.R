@@ -82,3 +82,6 @@ ineqTable = readHTMLTable(getURL(
 ), skip.rows=1:2, stringsAsFactors=FALSE)
 ineqTable = ineqTable[[1]][-1,]
 ineqTable = ineqTable[,c(1,4)]
+colnames(ineqTable) = c('Country','gini')
+ineqTable$Country = gsub("[[:punct:]]", "", ineqTable$Country)
+iMort = merge(iMort, ineqTable, by='Country')
