@@ -85,3 +85,5 @@ ineqTable = ineqTable[,c(1,4)]
 colnames(ineqTable) = c('Country','gini')
 ineqTable$Country = gsub("[[:punct:]]", "", ineqTable$Country)
 iMort = merge(iMort, ineqTable, by='Country')
+colnames(iMort) = gsub("[[:punct:]]", "", colnames(iMort))
+iMort$income = as.numeric(gsub("[[:punct:]]", "", iMort$Int))
