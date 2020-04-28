@@ -236,4 +236,6 @@ deathsGamC = gam(
     offset(nDays), data=oDeaths, 
   family='poisson')
 
-knitr::kable
+knitr::kable(
+  summary(deathsGamC)$p.table[,1:2], 
+  digits=3, col.names=c('est','se'))
