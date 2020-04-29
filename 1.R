@@ -90,3 +90,9 @@ iMort$income = as.numeric(gsub("[[:punct:]]", "", iMort$Int))
 iMort$gini = as.numeric(iMort$gini)
 iMort$mortality = as.numeric(iMort$mortality)
 iMort = iMort[,c('Country','mortality','gini','income')]
+
+
+
+library('mgcv')
+iMort$logInc = log10(iMort$income)
+iMort$logMort = log(iMort$mortality)
