@@ -96,3 +96,5 @@ iMort = iMort[,c('Country','mortality','gini','income')]
 library('mgcv')
 iMort$logInc = log10(iMort$income)
 iMort$logMort = log(iMort$mortality)
+mortGam = gam(logMort ~ s(logInc, gini), data=iMort)
+plot(mortGam, scheme=2)
