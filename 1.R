@@ -115,3 +115,4 @@ image(predList$gini,
              length(predList$logInc)),
       xlab = 'gini coef', ylab='income',
       log='y', col=mortCol$col, breaks=mortCol$breaks)
+mapmisc::legendBreaks("right", mortCol, cex=0.8, inset=0)
