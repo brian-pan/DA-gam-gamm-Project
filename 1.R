@@ -105,3 +105,7 @@ predList = list(gini = seq(25,50,len=201), logInc = seq(
 mortPred = exp(predict(mortGam, 
                        do.call(expand.grid, predList),
                        type='response'))
+mortCol = mapmisc::colourScale(
+  mortPred, digits=1.5, col='Spectral', 
+  style='equal', transform=0.5, 
+  breaks=9, rev=TRUE)
