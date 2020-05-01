@@ -109,3 +109,9 @@ mortCol = mapmisc::colourScale(
   mortPred, digits=1.5, col='Spectral', 
   style='equal', transform=0.5, 
   breaks=9, rev=TRUE)
+image(predList$gini,
+      10^predList$logInc/1000,
+      matrix(mortPred, length(predList$gini), 
+             length(predList$logInc)),
+      xlab = 'gini coef', ylab='income',
+      log='y', col=mortCol$col, breaks=mortCol$breaks)
