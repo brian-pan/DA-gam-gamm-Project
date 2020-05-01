@@ -98,3 +98,10 @@ iMort$logInc = log10(iMort$income)
 iMort$logMort = log(iMort$mortality)
 mortGam = gam(logMort ~ s(logInc, gini), data=iMort)
 plot(mortGam, scheme=2)
+
+### A prettier plot
+predList = list(gini = seq(25,50,len=201), logInc = seq(
+  log10(19000), log10(110000), len=101))
+mortPred = exp(predict(mortGam, 
+                       do.call(expand.grid, predList),
+                       type='response'))
