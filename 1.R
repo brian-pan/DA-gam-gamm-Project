@@ -126,3 +126,5 @@ cFile = Pmisc::downloadIfOld(
 cFile = cFile[which.max(file.info(cFile)$size)]
 dTable = read.table(cFile, 
                     sep=',', header=TRUE, stringsAsFactors=FALSE)
+dTable = dTable[grep("Number", dTable$UOM),]
+dTable = dTable[grep("Total", dTable$Month.of.death, invert=TRUE),]
