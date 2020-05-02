@@ -123,3 +123,6 @@ zUrl = 'http://www20.statcan.gc.ca/tables-tableaux/cansim/csv/01020502-eng.zip'
 cFile = Pmisc::downloadIfOld(
   'https://www150.statcan.gc.ca/n1/en/tbl/csv/13100708-eng.zip',
   path=file.path('..', ''))
+cFile = cFile[which.max(file.info(cFile)$size)]
+dTable = read.table(cFile, 
+                    sep=',', header=TRUE, stringsAsFactors=FALSE)
