@@ -134,3 +134,6 @@ dTable$month = gsub("^[[:print:]]+ ", "", dTable$Month.of.death)
 dTable$dateString = paste(dTable$year, dTable$month, '01')
 dTable$date = strptime(dTable$dateString, 
                        format = '%Y %B %d', tz='UTC')
+
+dTable$month  = factor(dTable$month, levels = months(ISOdate(0,1:12,1)))
+dTable$province = gsub(",.+", "", dTable$GEO) 
