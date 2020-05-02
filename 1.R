@@ -116,3 +116,10 @@ image(predList$gini,
       xlab = 'gini coef', ylab='income',
       log='y', col=mortCol$col, breaks=mortCol$breaks)
 mapmisc::legendBreaks("right", mortCol, cex=0.8, inset=0)
+
+
+zUrl = 'http://www20.statcan.gc.ca/tables-tableaux/cansim/csv/01020502-eng.zip'
+
+cFile = Pmisc::downloadIfOld(
+  'https://www150.statcan.gc.ca/n1/en/tbl/csv/13100708-eng.zip',
+  path=file.path('..', ''))
