@@ -137,3 +137,10 @@ dTable$date = strptime(dTable$dateString,
 
 dTable$month  = factor(dTable$month, levels = months(ISOdate(0,1:12,1)))
 dTable$province = gsub(",.+", "", dTable$GEO) 
+
+dTable = dTable[order(dTable$date),]
+
+cDeaths = dTable[grep("canada", dTable$GEO, ignore.case=TRUE, invert=TRUE),
+                 c('province', 'date', 'month','VALUE')]
+names(cDeaths) = gsub("VALUE", "Value", names(cDeaths))
+oDeaths = cDeaths[cDeaths$province=='Ontario',]
