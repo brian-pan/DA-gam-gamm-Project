@@ -153,3 +153,9 @@ oDeaths$timeNumeric = as.numeric(
 oDeaths[c(1,100,200),
         c('date', 'month', 'Value',
           'timeNumeric')]
+
+# NoOffset gam
+deathsGam = gam(
+  Value ~ month + s(timeNumeric),
+  data=oDeaths, family='poisson'
+)
