@@ -159,3 +159,6 @@ deathsGam = gam(
   Value ~ month + s(timeNumeric),
   data=oDeaths, family='poisson'
 )
+knitr::kable(
+  summary(deathsGam)$p.table[,1:2], 
+  digits=3, col.names=c('est','se'))
