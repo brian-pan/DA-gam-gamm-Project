@@ -147,3 +147,6 @@ oDeaths = cDeaths[cDeaths$province=='Ontario',]
 
 # ontarioData tidy=false
 timeOrigin = ISOdate(2000,1,1,0,0,0, tz='UTC')
+oDeaths$timeNumeric = as.numeric(
+  difftime(oDeaths$date, timeOrigin, 
+           units='days'))
