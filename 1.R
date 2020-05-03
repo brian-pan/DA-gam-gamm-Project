@@ -150,3 +150,6 @@ timeOrigin = ISOdate(2000,1,1,0,0,0, tz='UTC')
 oDeaths$timeNumeric = as.numeric(
   difftime(oDeaths$date, timeOrigin, 
            units='days'))
+oDeaths[c(1,100,200),
+        c('date', 'month', 'Value',
+          'timeNumeric')]
