@@ -144,3 +144,6 @@ cDeaths = dTable[grep("canada", dTable$GEO, ignore.case=TRUE, invert=TRUE),
                  c('province', 'date', 'month','VALUE')]
 names(cDeaths) = gsub("VALUE", "Value", names(cDeaths))
 oDeaths = cDeaths[cDeaths$province=='Ontario',]
+
+# ontarioData tidy=false
+timeOrigin = ISOdate(2000,1,1,0,0,0, tz='UTC')
