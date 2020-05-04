@@ -190,3 +190,9 @@ plot(exp(deathsGam$coef[theMonths]), log='y', xaxt='n', ylab='rr', xlab='')
 mtext(gsub("^month", "", theMonths), 
       at=1:length(theMonths), 
       side=1, las=3, adj=0, line=2)
+
+#ontGamPlot
+dSeq = 	seq(from=min(oDeaths$date),by='5 years', length.out=10)
+plot(deathsGam, xaxt='n', xlab='date')
+axis(1, at=difftime(dSeq,timeOrigin, units='days'), 
+     labels=format(dSeq,'%Y'))
