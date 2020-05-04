@@ -166,3 +166,6 @@ knitr::kable(
 # Relative rate for each month
 theMonths = grep( '^month', names(deathsGam$coef),value=TRUE)
 plot(exp(deathsGam$coef[theMonths]), log='y',  xaxt='n', ylab='rr', xlab='')
+mtext(gsub("^month", "", theMonths), 
+      at=1:length(theMonths), 
+      side=1, las=3, adj=0, line=2)
