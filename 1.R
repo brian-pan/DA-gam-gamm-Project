@@ -174,3 +174,9 @@ mtext(gsub("^month", "", theMonths),
 oDeaths$daysInMonth =	Hmisc::monthDays(oDeaths$date)
 oDeaths$nDays = log(oDeaths$daysInMonth)
 oDeaths[c(1,2,100,200),c('date','month','daysInMonth','nDays')]
+
+#gam
+deathsGam = gam(
+  Value ~ month + s(timeNumeric) + 
+    offset(nDays), data=oDeaths, 
+  family='poisson')
