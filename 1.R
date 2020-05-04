@@ -162,3 +162,7 @@ deathsGam = gam(
 knitr::kable(
   summary(deathsGam)$p.table[,1:2], 
   digits=3, col.names=c('est','se'))
+
+# Relative rate for each month
+theMonths = grep( '^month', names(deathsGam$coef),value=TRUE)
+plot(exp(deathsGam$coef[theMonths]), log='y',  xaxt='n', ylab='rr', xlab='')
