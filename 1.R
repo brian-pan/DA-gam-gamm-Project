@@ -202,3 +202,6 @@ dSeq =  seq(from=min(oDeaths$date),by='5 years', length.out=10)
 deathPred = as.matrix(as.data.frame(predict.gam(deathsGam, 
                                                 oDeaths, 
                                                 type = 'terms', terms = 's(timeNumeric)', se.fit=TRUE)))
+deathPred = exp(deathPred %*% Pmisc::ciMat())
+matplot(oDeaths$timeNumeric, deathPred, log='y', xaxt='n', 
+        xlab='date', type = 'l', lty = c(1,2,2), col='black', ylab='rr')
