@@ -196,3 +196,9 @@ dSeq = 	seq(from=min(oDeaths$date),by='5 years', length.out=10)
 plot(deathsGam, xaxt='n', xlab='date')
 axis(1, at=difftime(dSeq,timeOrigin, units='days'), 
      labels=format(dSeq,'%Y'))
+
+# ontGamPlotExp
+dSeq =  seq(from=min(oDeaths$date),by='5 years', length.out=10)
+deathPred = as.matrix(as.data.frame(predict.gam(deathsGam, 
+                                                oDeaths, 
+                                                type = 'terms', terms = 's(timeNumeric)', se.fit=TRUE)))
