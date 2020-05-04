@@ -169,3 +169,6 @@ plot(exp(deathsGam$coef[theMonths]), log='y',  xaxt='n', ylab='rr', xlab='')
 mtext(gsub("^month", "", theMonths), 
       at=1:length(theMonths), 
       side=1, las=3, adj=0, line=2)
+
+# Number of days in each month
+oDeaths$daysInMonth =	Hmisc::monthDays(oDeaths$date)
