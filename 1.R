@@ -205,3 +205,5 @@ deathPred = as.matrix(as.data.frame(predict.gam(deathsGam,
 deathPred = exp(deathPred %*% Pmisc::ciMat())
 matplot(oDeaths$timeNumeric, deathPred, log='y', xaxt='n', 
         xlab='date', type = 'l', lty = c(1,2,2), col='black', ylab='rr')
+axis(1, at=difftime(dSeq,timeOrigin, units='days'), 
+     labels=format(dSeq,'%Y'))
