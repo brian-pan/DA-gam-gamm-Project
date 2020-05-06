@@ -223,4 +223,4 @@ deathsPred$upper = deathsPred$fit + 2*deathsPred$se.fit
 matplot(Stime, exp(deathsPred[,c('lower','upper','fit')]), 
         type='l', lty=1, col=c('grey','grey','black'),
         lwd=c(2,2,1),  xlab='date', ylab='deaths', 
-        yaxs='i')
+        yaxs='i', xaxs='i', xaxt='n')
