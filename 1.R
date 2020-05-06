@@ -229,3 +229,7 @@ forAxis = seq(from=as.Date("2000/1/1"), to=as.Date("2026/1/1"), by='5 years')
 axis(1, as.numeric(forAxis), format(forAxis, '%Y'))
 points(as.POSIXct(oDeaths$date, format="%Y/%m/%d" ), 
        oDeaths$Value, cex=0.5, col='red')
+
+# a different constraint
+deathsGamC = gam(
+  Value ~ month + s(timeNumeric, pc=0))
