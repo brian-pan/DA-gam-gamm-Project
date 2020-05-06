@@ -224,3 +224,8 @@ matplot(Stime, exp(deathsPred[,c('lower','upper','fit')]),
         type='l', lty=1, col=c('grey','grey','black'),
         lwd=c(2,2,1),  xlab='date', ylab='deaths', 
         yaxs='i', xaxs='i', xaxt='n')
+
+forAxis = seq(from=as.Date("2000/1/1"), to=as.Date("2026/1/1"), by='5 years')
+axis(1, as.numeric(forAxis), format(forAxis, '%Y'))
+points(as.POSIXct(oDeaths$date, format="%Y/%m/%d" ), 
+       oDeaths$Value, cex=0.5, col='red')
