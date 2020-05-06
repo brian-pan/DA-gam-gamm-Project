@@ -215,3 +215,8 @@ newX = data.frame(
   month  = months(Stime),
   nDays =	log(Hmisc::monthDays(Stime)))
 deathsPred = predict(deathsGam, newX, se.fit=TRUE)
+
+# Predictions (ontForecastPredict)
+deathsPred = as.data.frame(deathsPred)
+deathsPred$lower = deathsPred$fit - 2*deathsPred$se.fit
+deathsPred$upper = deathsPred$fit + 2*deathsPred$se.fit
