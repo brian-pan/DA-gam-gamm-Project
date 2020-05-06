@@ -232,4 +232,6 @@ points(as.POSIXct(oDeaths$date, format="%Y/%m/%d" ),
 
 # a different constraint
 deathsGamC = gam(
-  Value ~ month + s(timeNumeric, pc=0))
+  Value ~ month + s(timeNumeric, pc=0) + 
+    offset(nDays), data=oDeaths, 
+  family='logit')
