@@ -210,3 +210,6 @@ axis(1, at=difftime(dSeq,timeOrigin, units='days'),
 
 # Forecasting (ontForecast)
 Stime = seq(from=as.Date("2000/1/1"), to=as.Date("2026/1/1"), by='months')
+newX = data.frame(
+  timeNumeric = as.numeric(difftime(Stime, timeOrigin, units='days')),
+  month  = months(Stime)
