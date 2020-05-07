@@ -239,3 +239,7 @@ deathsGamC = gam(
 knitr::kable(
   summary(deathsGamC)$p.table[,1:2], 
   digits=3, col.names=c('est','se'))
+
+deathPredC = as.matrix(as.data.frame(predict.gam(deathsGamC, 
+                                                 oDeaths, 
+                                                 type = 'terms', terms = 's(timeNumeric)', se.fit=FALSE)))
