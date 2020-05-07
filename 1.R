@@ -242,4 +242,5 @@ knitr::kable(
 
 deathPredC = as.matrix(as.data.frame(predict.gam(deathsGamC, 
                                                  oDeaths, 
-                                                 type = 'terms', terms = 's(timeNumeric)', se.fit=FALSE)))
+                                                 type = 'terms', terms = 's(timeNumeric)', se.fit=TRUE)))
+deathPredC = exp(deathPredC %*% Pmisc::ciMat())
