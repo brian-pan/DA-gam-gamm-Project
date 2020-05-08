@@ -246,3 +246,5 @@ deathPredC = as.matrix(as.data.frame(predict.gam(deathsGamC,
 deathPredC = exp(deathPredC %*% Pmisc::ciMat())
 
 x <- data_frame(as.POSIXct(oDeaths$date, format="%Y/%m/%d"), deathGamPredMat[,1], deathGamPredMat[,2], deathGamPredMat[,3])
+
+names(x) <- c("date", "est", "lower", "upper")
