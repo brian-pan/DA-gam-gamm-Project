@@ -248,3 +248,7 @@ deathPredC = exp(deathPredC %*% Pmisc::ciMat())
 x <- data_frame(as.POSIXct(oDeaths$date, format="%Y/%m/%d"), deathGamPredMat[,1], deathGamPredMat[,2], deathGamPredMat[,3])
 
 names(x) <- c("date", "est", "lower", "upper")
+
+oDeaths$date <- as.POSIXct(oDeaths$date, format="%Y/%m/%d")
+
+x <- left_join(x, oDeaths, by = "date")
