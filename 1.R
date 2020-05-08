@@ -254,3 +254,10 @@ oDeaths$date <- as.POSIXct(oDeaths$date, format="%Y/%m/%d")
 x <- left_join(x, oDeaths, by = "date")
 
 x$date <- as.POSIXct(x$date, format="%Y/%m/%d")
+
+x %>% 
+  filter(date > as.Date("2017-06-01")) %>% 
+  ggplot(aes(date, est)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.5, fill = "grey50") +
+  geom_point(aes(date, nDays))
