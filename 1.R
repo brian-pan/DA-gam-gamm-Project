@@ -252,3 +252,5 @@ names(x) <- c("date", "est", "lower", "upper")
 oDeaths$date <- as.POSIXct(oDeaths$date, format="%Y/%m/%d")
 
 x <- left_join(x, oDeaths, by = "date")
+
+x$date <- as.POSIXct(x$date, format="%Y/%m/%d")
