@@ -267,3 +267,7 @@ x %>%
   ggplot(aes(date, est)) +
   geom_line() +
   geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.5, fill = "grey50")
+
+library('mgcv')
+library('cowplot')
+set.seed(25)
