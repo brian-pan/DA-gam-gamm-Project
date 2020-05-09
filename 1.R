@@ -261,3 +261,9 @@ x %>%
   geom_line() +
   geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.5, fill = "grey50") +
   geom_point(aes(date, nDays))
+
+# A longer time span
+x %>% 
+  ggplot(aes(date, est)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.5, fill = "grey50")
