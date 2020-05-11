@@ -281,3 +281,4 @@ ysim <- function(n = 500, scale = 2) {
   y <- f + e
   data.frame(y = y, x = x, f2 = f)
 }
+my_data <- ysim()
