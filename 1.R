@@ -282,3 +282,7 @@ ysim <- function(n = 500, scale = 2) {
   data.frame(y = y, x = x, f2 = f)
 }
 my_data <- ysim()
+
+p <- ggplot(my_data, aes(x = x, y = y)) +
+  geom_point()
+p
