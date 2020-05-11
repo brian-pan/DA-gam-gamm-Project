@@ -271,3 +271,5 @@ x %>%
 library('mgcv')
 library('cowplot')
 set.seed(25)
+
+f2 <- function(x) 0.2 * x^11 * (10 * (1 - x))^6 + 10 * (10 * x)^3 * (1 - x)^10
