@@ -286,3 +286,10 @@ my_data <- ysim()
 p <- ggplot(my_data, aes(x = x, y = y)) +
   geom_point()
 p
+
+p_1_1000 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 3, sp = 1000))
+
+p_10_1000 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 10, sp = 1000))
+
+
+p_100_1000 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 100, sp = 1000))
