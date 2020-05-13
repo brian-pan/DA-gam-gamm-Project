@@ -309,3 +309,9 @@ p_10_0.1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k =
 
 
 p_100_0.1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 100, sp = 0.1))
+
+labels <- c("", "", "", 
+            "k = 3, sp = 1000", "k = 10, sp = 1000", "k = 100, sp = 1000",
+            "k = 3, sp = 1", "k = 10, sp = 1", "k = 100, sp = 1",
+           
+)
