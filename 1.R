@@ -304,3 +304,8 @@ p_100_1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 
 
 
 p_1_0.1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 3, sp = 0.1))
+
+p_10_0.1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 10, sp = 0.1))
+
+
+p_100_0.1 <- p + geom_smooth(method="gam", color="purple", formula = y ~ s(x, k = 100, sp = 0.1))
