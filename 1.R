@@ -315,3 +315,6 @@ labels <- c("", "", "",
             "k = 3, sp = 1", "k = 10, sp = 1", "k = 100, sp = 1",
             "k = 3, sp = 0.1", "k = 10, sp = 0.1", "k = 100, sp = 0.1"
 )
+
+plot_grid("", "", "", p_1_1000, p_10_1000, p_100_1000, p_1_1, p_10_1, p_100_1, p_1_0.1, p_10_0.1, p_100_0.1, ncol=3,
+          labels=labels, label_size = 8, label_colour = "purple", vjust = 0.009) 
