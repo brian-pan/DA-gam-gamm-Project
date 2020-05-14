@@ -26,3 +26,7 @@ covid_data %>%
 
 # Fit a GAM with `dead` as the response a smooth on `timeInt` and `country_region` as covariate.
 # In the smooth, use `pc=0`, which indicates a *point constraint*. The smooth will pass through 0 at this point.
+resGam= mgcv::gam(
+  dead ~ s(timeInt, pc=0) + country_region, 
+  data=covid_data, 
+  family=poisson(link='log'))
