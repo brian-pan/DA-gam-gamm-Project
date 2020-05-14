@@ -15,3 +15,11 @@ covid_data %>%
   ggplot(aes(time, dead, color=country_region)) +
   geom_point() +
   theme_minimal()
+
+# Plot from initial death in region
+covid_data %>% 
+  filter(country_region %in% c('Hubei','Italy','Iran','South Korea','USA')) %>% 
+  na.omit() %>% 
+  ggplot(aes(timeInt, dead, color=country_region)) +
+  geom_point() +
+  theme_minimal()
