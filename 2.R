@@ -7,3 +7,11 @@ library(tidyverse)
 
 # Load nCOVID-19 data
 covid_data <- read_csv("covid_data.csv")
+
+# Plot over time
+covid_data %>% 
+  filter(country_region %in% c('Hubei','Italy','Iran','South Korea','USA')) %>% 
+  na.omit() %>% 
+  ggplot(aes(time, dead, color=country_region)) +
+  geom_point() +
+  theme_minimal()
