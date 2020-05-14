@@ -23,3 +23,6 @@ covid_data %>%
   ggplot(aes(timeInt, dead, color=country_region)) +
   geom_point() +
   theme_minimal()
+
+# Fit a GAM with `dead` as the response a smooth on `timeInt` and `country_region` as covariate.
+# In the smooth, use `pc=0`, which indicates a *point constraint*. The smooth will pass through 0 at this point.
