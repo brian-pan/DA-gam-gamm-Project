@@ -34,3 +34,9 @@ resGam= mgcv::gam(
 summary(resGam)
 coef(resGam)
 plot(resGam)
+
+# This model will result in an error.
+resGam2= mgcv::gam(
+  dead ~ s(timeInt, k=150, pc=0) + country_region, 
+  data=covid_data, 
+  family=poisson(link='log'))
