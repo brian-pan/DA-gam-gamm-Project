@@ -30,3 +30,7 @@ resGam= mgcv::gam(
   dead ~ s(timeInt, pc=0) + country_region, 
   data=covid_data, 
   family=poisson(link='log'))
+
+summary(resGam)
+coef(resGam)
+plot(resGam)
