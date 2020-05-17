@@ -52,3 +52,10 @@ resGam4 = mgcv::gam(
   family=poisson(link='log'), method='ML')
 plot(resGam4)
 gam.check(resGam4)
+
+
+covid_data$timeIntInd = covid_data$timeInt
+
+resGammInd = gamm4::gamm4(
+  dead ~ country_region + 
+    s(timeInt, k=20, pc=0),
