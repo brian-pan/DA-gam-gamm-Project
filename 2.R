@@ -59,3 +59,5 @@ covid_data$timeIntInd = covid_data$timeInt
 resGammInd = gamm4::gamm4(
   dead ~ country_region + 
     s(timeInt, k=20, pc=0),
+  random = ~ (1|timeIntInd), 
+  data=covid_data, family=poisson(link='log'))
