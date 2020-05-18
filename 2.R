@@ -65,3 +65,10 @@ resGammInd = gamm4::gamm4(
 plot(resGammInd$gam)
 summary(resGammInd$mer)
 summary(resGammInd$gam)
+
+
+
+covid_data_2 <- expand_grid(covid_data$timeInt, covid_data$country_region) %>% 
+  as_tibble() %>% 
+  rename(timeInt = 1, country_region = 2) %>% 
+  distinct() 
