@@ -61,3 +61,7 @@ resGammInd = gamm4::gamm4(
     s(timeInt, k=20, pc=0),
   random = ~ (1|timeIntInd), 
   data=covid_data, family=poisson(link='log'))
+
+plot(resGammInd$gam)
+summary(resGammInd$mer)
+summary(resGammInd$gam)
