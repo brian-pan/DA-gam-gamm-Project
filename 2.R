@@ -87,3 +87,9 @@ covid_data_2 %>%
 
 ## soln
 covid_data$timeSlope = covid_data$timeInt/100
+
+resGammSlope = gamm4::gamm4(
+  dead ~ country_region + s(timeInt, k=30, pc=0),
+  random = ~(0+timeSlope|country_region) + 
+    (1|timeIntInd:country_region), 
+  data=covid_data, family=poisson(link='log'))
