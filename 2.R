@@ -74,3 +74,13 @@ covid_data_2 <- expand_grid(covid_data$timeInt, covid_data$country_region) %>%
   distinct() 
 
 covid_data_2$predicted <- predict(resGammInd$gam, newdata=covid_data_2, type="response")
+
+#covid_data_3 <- bind_cols(covid_data_2, predicted) %>% 
+#mutate(lower = fit - 2*se.fit, upper = fit + 2*se.fit)
+
+covid_data_2 %>% 
+  ggplot(aes(timeInt, predicted, colour=country_region)) +
+  geom_line() +
+  theme_minimal() +
+  facet_wrap(~country_region) +
+  ggtitle("Predicted deaths over time (time = 0 is first death)")
