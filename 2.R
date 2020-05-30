@@ -84,3 +84,6 @@ covid_data_2 %>%
   theme_minimal() +
   facet_wrap(~country_region) +
   ggtitle("Predicted deaths over time (time = 0 is first death)")
+
+## soln
+covid_data$timeSlope = covid_data$timeInt/100
