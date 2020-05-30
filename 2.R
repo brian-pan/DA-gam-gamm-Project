@@ -93,3 +93,10 @@ resGammSlope = gamm4::gamm4(
   random = ~(0+timeSlope|country_region) + 
     (1|timeIntInd:country_region), 
   data=covid_data, family=poisson(link='log'))
+
+#save(resGammSlope, file='resGamSlope.RData')
+plot(resGammSlope$gam)
+summary(resGammSlope$mer)
+names(lme4::ranef(resGammSlope$mer))
+theRanef = lme4::ranef(resGammSlope$mer, condVar = TRUE)$country_region
+(theRanefVec = sort(drop(t(theRanef))))
