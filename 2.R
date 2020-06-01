@@ -105,3 +105,7 @@ Dcountry = 'France'
 toPredict = expand.grid(
   timeInt = 0:100, 
   country_region = Dcountry)
+toPredict$timeSlope = toPredict$timeIntInd = 
+  toPredict$timeInt
+thePred = predict(resGammSlope$gam, 
+                  newdata=toPredict, se.fit=TRUE)
