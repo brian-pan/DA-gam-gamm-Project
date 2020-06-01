@@ -100,3 +100,8 @@ summary(resGammSlope$mer)
 names(lme4::ranef(resGammSlope$mer))
 theRanef = lme4::ranef(resGammSlope$mer, condVar = TRUE)$country_region
 (theRanefVec = sort(drop(t(theRanef))))
+
+Dcountry = 'France'
+toPredict = expand.grid(
+  timeInt = 0:100, 
+  country_region = Dcountry)
