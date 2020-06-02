@@ -109,3 +109,9 @@ toPredict$timeSlope = toPredict$timeIntInd =
   toPredict$timeInt
 thePred = predict(resGammSlope$gam, 
                   newdata=toPredict, se.fit=TRUE)
+
+matplot(toPredict$timeInt, 
+        exp(do.call(cbind, thePred) %*% Pmisc::ciMat(0.75)), 
+        type='l',
+        col=c('black','grey','grey'), 
+        ylim = c(0, 25))
