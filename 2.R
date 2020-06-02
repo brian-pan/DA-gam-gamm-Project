@@ -115,3 +115,5 @@ matplot(toPredict$timeInt,
         type='l',
         col=c('black','grey','grey'), 
         ylim = c(0, 25))
+points(covid_data[covid_data$country_region == Dcountry,c('timeInt','dead')], 
+       col='red')
