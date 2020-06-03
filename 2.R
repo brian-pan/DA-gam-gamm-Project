@@ -128,3 +128,7 @@ cutoff=3
 x2 = by(x1$global, x1$global[,'country', drop=FALSE], 
         function(xx) {
           xx$incidence = diff(c(0, xx$cum_confirm))
+          xx$dead = diff(c(0, xx$cum_dead))
+          if(any(xx$cum_dead >= cutoff)) {
+            cutoffHere = min(xx[xx$cum_dead >= cutoff,'time'], na.rm=TRUE) +1
+            xx$timeInt = as.numeric(difftime(xx$time, cutoffHere, units='days'))
