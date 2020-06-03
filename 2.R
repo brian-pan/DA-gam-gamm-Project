@@ -123,3 +123,8 @@ points(covid_data[covid_data$country_region == Dcountry,c('timeInt','dead')],
 install.packages("devtools")
 devtools::install_github("GuangchuangYu/nCov2019")
 x1 <- nCov2019::load_nCov2019(lang = 'en')
+cutoff=3
+
+x2 = by(x1$global, x1$global[,'country', drop=FALSE], 
+        function(xx) {
+          xx$incidence = diff(c(0, xx$cum_confirm))
