@@ -132,3 +132,10 @@ x2 = by(x1$global, x1$global[,'country', drop=FALSE],
           if(any(xx$cum_dead >= cutoff)) {
             cutoffHere = min(xx[xx$cum_dead >= cutoff,'time'], na.rm=TRUE) +1
             xx$timeInt = as.numeric(difftime(xx$time, cutoffHere, units='days'))
+            xx = xx[xx$timeInt >= 0, ]
+            xx=					xx[,c('time','timeInt','cum_confirm','cum_dead','incidence','dead','country')]
+          } else {
+            xx = NULL
+          }
+          xx
+        }, simplify=FALSE)
