@@ -139,3 +139,7 @@ x2 = by(x1$global, x1$global[,'country', drop=FALSE],
           }
           xx
         }, simplify=FALSE)
+
+x3 = by(x1$province, x1$province[,'province', drop=FALSE], 
+        function(xx) {
+          xx$incidence = diff(c(0, xx$cum_confirm))
