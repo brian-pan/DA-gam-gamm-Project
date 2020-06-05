@@ -143,3 +143,15 @@ x2 = by(x1$global, x1$global[,'country', drop=FALSE],
 x3 = by(x1$province, x1$province[,'province', drop=FALSE], 
         function(xx) {
           xx$incidence = diff(c(0, xx$cum_confirm))
+          xx$dead = diff(c(0, xx$cum_dead))
+          colnames(xx) = gsub("province","country", colnames(xx))
+          if(any(xx$cum_dead >= cutoff)) {
+            cutoffHere = min(xx[xx$cum_dead >= cutoff,'time'], na.rm=TRUE) +1
+            xx$timeInt = as.numeric(difftime(xx$time, cutoffHere, units='days'))
+            xx = xx[xx$timeInt >= 0, ]
+            xx=					xx[,c('time','timeInt','cum_confirm','cum_dead','incidence','dead','country')]
+          } else {
+            xx = NULL
+          }
+          xx
+        }, simplify=FALSE)
