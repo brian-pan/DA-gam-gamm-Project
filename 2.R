@@ -155,3 +155,6 @@ x3 = by(x1$province, x1$province[,'province', drop=FALSE],
           }
           xx
         }, simplify=FALSE)
+
+class(x2) = class(x3) = 'list'
+x2 = x2[grep('China', names(x2), invert=TRUE)]
