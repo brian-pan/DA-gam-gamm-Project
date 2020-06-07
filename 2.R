@@ -158,3 +158,10 @@ x3 = by(x1$province, x1$province[,'province', drop=FALSE],
 
 class(x2) = class(x3) = 'list'
 x2 = x2[grep('China', names(x2), invert=TRUE)]
+x = c(x2, x3)
+x$Hubei[x$Hubei$incidence > 4000,c('dead','incidence')] = NA
+
+tidy_data <- compact(x) %>% bind_rows() %>% 
+  rename(country_region = country) %>% 
+  filter(dead>0)
+write_csv(tidy_data, "covid_data.csv")
